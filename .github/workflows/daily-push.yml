@@ -1,0 +1,20 @@
+name: Daily Word Push
+on:
+  schedule:
+    # This runs at 7am, 2pm, and 5pm UTC (10am, 5pm, 8pm EAT)
+    - cron: '0 7,14,17 * * *'
+  workflow_dispatch: # Keeps the "Run Manual" button active
+
+jobs:
+  broadcast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: node index.js
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
