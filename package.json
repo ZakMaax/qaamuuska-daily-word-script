@@ -1,0 +1,9 @@
+{
+  "name": "daily-word-sender",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "expo-server-sdk": "^6.0.0",
+    "@supabase/supabase-js": "^2.98.0"
+  }
+}
