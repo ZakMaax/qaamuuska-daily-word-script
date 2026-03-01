@@ -25,6 +25,9 @@ async function sendDailyBroadcast() {
     title: `Erayga Maanta: ${word.word}`,
     body: word.meaning.length > 150 ? word.meaning.substring(0, 147) + "..." : word.meaning,
     data: { word: word.word },
+    android: {
+    channelId: "daily-word", 
+  },
   }));
 
   // 4. Chunk and Send
